@@ -1,23 +1,26 @@
-const rect = require("./3.rectangle_with_callbk.js");
+// app1.mjs
 
-function solveRectancgle(l, w) {
-  console.log(`Solving for Rectangle: ${l}, ${w}`);
-  rect(l, w, (err, rectangle) => {
+import { Rectangle } from "./4.rectangle_with_callback_named_Export.mjs";
+
+function solveRectangle(l, w) {
+  console.log(`From solveRectangle calling Rectangle Module and Solving for dimensions: ${l} ${w}`);
+  
+  Rectangle(l, w, (err, rect) => {
     if (err) {
-      console.log(`Error: ${err.message}`);
+      console.log(err.message);
     } else {
-      console.log(`Area of the Rectangle with dimensions: ${l}, ${w} is => ${rectangle.area()}`);
-      console.log(`Perimeter of the Rectangle with dimensions: ${l}, ${w} is => ${rectangle.perimeter()}`);
+      console.log(`Perimeter of the Rectangle with dimensions ${l} ${w} is: ${rect.perimeter()}`);
+      console.log(`Area of the Rectangle with dimensions ${l} ${w} is: ${rect.area()}`);
     }
   });
-  console.log(`After rect module for Dimensions: ${l} ${w}`);
 }
 
-solveRectancgle(1, 2);
-solveRectancgle(1, 0);
-solveRectancgle(0, 2);
-solveRectancgle(0, 0);
-solveRectancgle(1, -2);
-solveRectancgle(-1, 2);
-solveRectancgle(-1, -2);
-solveRectancgle(5, 6);
+solveRectangle(1, 2);
+solveRectangle(1, 0);
+solveRectangle(0, 2);
+solveRectangle(0, 0);
+solveRectangle(1, -2);
+solveRectangle(-1, 2);
+solveRectangle(-1, -2);
+solveRectangle(5, 6);
+
